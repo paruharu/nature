@@ -4,11 +4,16 @@
     <title>Nature</title>
     <%= csrf_meta_tags %>
 
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+   <header>
+     <nav class="navbar navbar-expand-lg navbar-white bg-dark">
+      <div class="container">
+       <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
     　<li>
         <%= link_to '投稿', new_post_image_path %>
@@ -16,19 +21,24 @@
       <li>
         <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
       </li>
-    <% else %>
+      <% else %>
     　<li>
-    　  <%= link_to "ホーム", root_path %>
-  　  </li>
-
+    　  <%= link_to "ホーム", root_path ,class: 'btn btn-default btn-lg btn-block', class: 'btn btn-outline-info', style: 'margin: 15px' %>
+  　   </li>
       <li>
-        <%= link_to "新規登録", new_user_registration_path %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-default btn-lg btn-block', class: 'btn btn-outline-info', style: 'margin: 15px' %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path %>
+        <%= link_to "ログイン", new_user_session_path ,class: 'btn btn-default btn-lg btn-block', class: 'btn btn-outline-info', style: 'margin: 15px' %>
       </li>
-    <% end %>
+      <% end %>
 
+       </ul>
+      </div>
+     </nav>
+    </header>
+
+    <%= notice %>
     <%= yield %>
   </body>
 </html>
