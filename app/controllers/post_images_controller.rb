@@ -20,13 +20,22 @@ class PostImagesController < ApplicationController
   end
 
   def edit
-    
+    @post_image = PostImage.find(params[:id])
+    # @post_image = PostImage.new
+
+     if @post_image.update(post_image_params)
+        flash[:notice] = "更新しました。"
+        redirect_to post_image_path(@post_image.id)
+     else
+        render :edit
+     end
 
   end
 
   def destroy
     @post_image = PostImage.find(params[:id])
     @post_image.destroy
+    flash[:notice] = "削除しました。"
     redirect_to post_images_path
   end
 
