@@ -8,7 +8,15 @@ Rails.application.routes.draw do
     resource :favorites, only: [:create, :destroy]
 
     resources :post_comments, only: [:create, :destroy]
+
+
+
   end
   resources :users, only: [:show, :edit, :update]
+
+      # 地図
+    get 'maps/index'
+    root to: 'maps#index'
+    resources :maps, only: [:index]
 
 end
