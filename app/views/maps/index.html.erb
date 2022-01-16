@@ -1,4 +1,4 @@
-<h2>gmap</h2>
+<h4>投稿一覧</h4>
 
 <input id="address" type="textbox" value="GeekSalon">
 <input type="button" value="Encode" onclick="codeAddress()">
@@ -42,7 +42,7 @@ function codeAddress(){
           map: map,
           position: results[0].geometry.location
       });
-      // 下の1行を追加
+
       display.textContent = "検索結果：" + results[ 0 ].geometry.location
     } else {
       alert('該当する結果がありませんでした：' + status);
@@ -50,4 +50,4 @@ function codeAddress(){
   });
 }
 </script>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBYMd1ZBVAR41Yys4-q5r2O17YbRCD32KY&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
