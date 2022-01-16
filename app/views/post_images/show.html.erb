@@ -12,8 +12,8 @@
 
 
   <% if @post_image.user == current_user %>
-    <%= link_to "編集", edit_post_image_path(@post_image.id) %>
-    <%= link_to "削除", post_image_path(@post_image.id), method: :delete, data: {confirm: '本当に投稿を削除しますか？'} %>
+    <%= link_to "投稿編集", edit_post_image_path(@post_image.id) %>
+    <%= link_to "投稿削除", post_image_path(@post_image.id), method: :delete, data: {confirm: '本当に投稿を削除しますか？'} %>
   <% end %>
 
 
@@ -23,12 +23,26 @@
       <%= post_comment.created_at.strftime('%Y/%m/%d') %><%= post_comment.comment %>
   </div>
 
-    <% if post_comment.user == current_user %>
-    <div>
-      <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
-    </div>
-  　<% end %>
+      <% if post_comment.user == current_user %>
+      <div>
+        <%= link_to "削除", post_image_post_comment_path(post_comment.post_image, post_comment), method: :delete %>
+      </div>
+   　  <% end %>
  　  <% end %>
+
+  <% if @post_image.favorited_by?(current_user) %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :delete do %>
+        ♥<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+    <% else %>
+    <p>
+      <%= link_to post_image_favorites_path(@post_image), method: :post do %>
+        ♡<%= @post_image.favorites.count %> いいね
+      <% end %>
+    </p>
+  <% end %>
 
 
   <div>
