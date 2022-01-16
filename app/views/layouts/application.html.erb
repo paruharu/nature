@@ -22,7 +22,7 @@
         <%= link_to '投稿', new_post_image_path,class: 'btn btn-outline-info', style: 'margin: 15px' %>
       </li>
       <li>
-        <%= link_to 'マイページ', edit_user_registration_path,class: 'btn btn-outline-info', style: 'margin: 15px' %>
+        <%= link_to 'マイページ',  user_path(current_user.id),class: 'btn btn-outline-info', style: 'margin: 15px' %>
       </li>
       <li>
         <%= link_to "ログアウト", destroy_user_session_path,class: 'btn btn-outline-info', style: 'margin: 15px', method: :delete %>
