@@ -72,3 +72,7 @@ gem 'font-awesome-sass', '~> 5.13'
 
 gem 'devise-i18n'
 
+gem "gmaps4rails"
+gem "geocoder"
+gem "gon"
+gem "dotenv-rails"
