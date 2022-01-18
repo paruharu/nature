@@ -11,6 +11,7 @@
     <!--gem gonを使用できるようにする-->
     <%= include_gon %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
   </head>
 
@@ -21,26 +22,26 @@
        <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
       <li>
-        <%= link_to '地図', post_images_path,class: 'btn btn-outline-dark mr-0', style: 'margin: 15px' %>
+        </i><%= link_to '地図', post_images_path,class: 'fas fa-map-pin btn btn-outline-dark mr-0', style: 'margin: 15px' %>
       </li>
     　<li>
-        <%= link_to '投稿', new_post_image_path,class: 'btn btn-outline-dark', style: 'margin: 15px' %>
+        <%= link_to '投稿', new_post_image_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 15px' %>
       </li>
       <li>
-        <%= link_to 'マイページ',  user_path(current_user.id),class: 'btn btn-outline-dark', style: 'margin: 15px' %>
+        <%= link_to 'マイページ',  user_path(current_user.id),class: 'far fa-address-card btn btn-outline-dark', style: 'margin: 15px' %>
       </li>
       <li>
-        <%= link_to "ログアウト", destroy_user_session_path,class: 'btn btn-outline-dark', style: 'margin: 15px', method: :delete %>
+        <%= link_to "ログアウト", destroy_user_session_path,class: 'fas fa-sign-out-alt btn btn-outline-dark', style: 'margin: 15px', method: :delete %>
       </li>
       <% else %>
     　<li>
-    　  <%= link_to "ホーム", root_path ,class: 'btn btn-outline-dark mr-0', style: 'margin: 15px' %>
+    　  <%= link_to "ホーム", root_path ,class: 'fas fa-home btn btn-outline-dark mr-0', style: 'margin: 15px' %>
   　   </li>
       <li>
-        <%= link_to "新規登録", new_user_registration_path, class: 'btn btn-outline-dark', style: 'margin: 15px' %>
+        <%= link_to "新規登録", new_user_registration_path, class: 'fas fa-user-plus btn btn-outline-dark', style: 'margin: 15px' %>
       </li>
       <li>
-        <%= link_to "ログイン", new_user_session_path ,class: 'btn btn-outline-dark', style: 'margin: 15px' %>
+        <%= link_to "ログイン", new_user_session_path ,class: 'fas fa-sign-in-alt btn btn-outline-dark', style: 'margin: 15px' %>
       </li>
       <li>
         <!--仮-->
