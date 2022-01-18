@@ -1,11 +1,15 @@
 
-<% @post_images.each do |post_image| %>
-<div>
-  <%= attachment_image_tag post_image, :image %>
-  <p>タイトル：<%=link_to post_image_path(post_image.id) do %><%= post_image.title %><% end %></p>
-  <p>説明：<%= post_image.introduction %></p>
-  <p>投稿者：<%= post_image.user %></p>
-  <p>投稿日時：<%= post_image.created_at.strftime('%Y/%m/%d') %></p>
+<body class="background">
 
-</div>
-<% end %>
+  <% @post_images.each do |post_image| %>
+  <div>
+    <%= attachment_image_tag post_image, :image %>
+    <p>タイトル：<%=link_to post_image_path(post_image.id) do %><%= post_image.title %><% end %></p>
+    <p>説明：<%= post_image.introduction %></p>
+    <p>投稿者：<%= post_image.user %></p>
+    <p>投稿日時：<%= post_image.created_at.strftime('%Y/%m/%d') %></p>
+
+  </div>
+  <% end %>
+
+</body>

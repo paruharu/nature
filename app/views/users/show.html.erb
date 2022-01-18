@@ -1,16 +1,23 @@
+<br>
 <html>
- <body style="background-color: #f0f8ff;">
-  <h4>プロフィール</h4>
-    <div>
+ <body class="background">
+   <div class="container">
+    <div class="row">
+      <h4>プロフィール</h4>
+    </div>
+    <div class="row">
       <h6>ニックネーム：<%= @user.name %></h6>
       <%#= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+    </div>
+    <div class="row">
       <h6>居住地：<%= @user.home %></h6>
-
+    </div>
       <% if @user.id == current_user.id %>
         <p><%= link_to "プロフィール編集", edit_user_registration_path %></p>
       <% end %>
     </div>
 
+   </div>
  </body>
 </html>
 
