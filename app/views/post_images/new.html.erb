@@ -1,16 +1,104 @@
 
-<h4>投稿フォーム</h4>
-<%= form_with model: @post_image, local:true do |f| %>
-  <h6>●画像選択</h6>
-  <%= f.attachment_field :image %>
-  <h6>●タイトル</h6>
-  <%= f.text_field :title %>
-  <h6>●撮影場所</h6>
-  <%= f.text_field :address %>
-  <h6>●カテゴリー</h6>
-  <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>
+<!--<h4>投稿フォーム</h4>-->
+<!--<%#= form_with model: @post_image, local:true do |f| %>-->
+<!--  <h6>●画像選択</h6>-->
+<!--  <%#= f.attachment_field :image %>-->
+<!--  <h6>●タイトル</h6>-->
+<!--  <%#= f.text_field :title %>-->
+<!--  <h6>●撮影場所</h6>-->
+<!--  <%#= f.text_field :address %>-->
+<!--  <h6>●カテゴリー</h6>-->
+<!--  <%#= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>-->
 
-  <h6>●説明</h6>
-  <%= f.text_area :introduction %>
-  <%= f.submit '投稿' %>
+<!--  <h6>●説明</h6>-->
+<!--  <%#= f.text_area :introduction %>-->
+<!--  <%#= f.submit '投稿' %>-->
+<!--<%# end %>-->
+
+
+
+
+<%= form_with model: @post_image, local:true do |f| %>
+  <div class="actions">
+    <%= f.label :title,"タイトル" %>
+    <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>
+    <%= f.text_area :introduction,"説明" %>
+    <%= f.attachment_field :image,"画像選択" %>-->
+    <%= f.text_field :body %>
+    <%= f.label :latitude,"緯度" %>
+    <%= f.text_field :latitude,:value =>"緯度", id: :latitude %>
+    <%= f.label :lng,"経度" %>
+    <%= f.text_field :longitude,:value =>"経度", id: :longitude %>
+    <%= f.submit %>
+  </div>
 <% end %>
+
+<h2>Map</h2>
+
+<input id="address" type="textbox" value="GeekSalon">
+<input type="button" value="検索" onclick="codeAddress()">
+<p>マーカーをドラック＆ドロップで位置の調整ができます。<p>
+<div id='map'></div>
+
+<style>
+#map {
+  height: 600px;
+  width: 600px;
+}
+</style>
+
+<script>
+//初期マップの設定
+let map
+let marker
+function initMap(){
+  geocoder = new google.maps.Geocoder()
+
+  map = new google.maps.Map(document.getElementById('map'), {
+    center:  {lat: 35.6803997, lng:139.7690174},  //東京
+    zoom: 15,
+
+  });
+}
+
+//検索後のマップ作成
+let geocoder
+let aft
+function codeAddress(){
+  let inputAddress = document.getElementById('address').value;
+  geocoder.geocode( { 'address': inputAddress}, function(results, status) {
+    if (status == 'OK') {
+        //マーカーが複数できないようにする
+        if (aft == true){
+            marker.setMap(null);
+        }
+
+        //新しくマーカーを作成する
+        map.setCenter(results[0].geometry.location);
+            marker = new google.maps.Marker({
+            map: map,
+            position: results[0].geometry.location,
+            draggable: true // ドラッグ可能にする
+        });
+
+        //二度目以降か判断
+        aft = true
+
+        //検索した時に緯度経度を入力する
+        document.getElementById('latitude').value = results[0].geometry.location.latitude();
+        document.getElementById('lng').value = results[0].geometry.location.longitude();
+
+        // マーカーのドロップ（ドラッグ終了）時のイベント
+        google.maps.event.addListener( marker, 'dragend', function(ev){
+            // イベントの引数evの、プロパティ.latLngが緯度経度
+            document.getElementById('latitude').value = ev.latLng.latitude();
+            document.getElementById('longitude').value = ev.latLng.longitude();
+        });
+    } else {
+      alert('該当する結果がありませんでした：' + status);
+    }
+  });
+}
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
