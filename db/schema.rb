@@ -32,7 +32,9 @@ ActiveRecord::Schema.define(version: 2022_01_17_130836) do
     t.string "image_id"
     t.text "introduction"
     t.string "genre"
-    t.text "address"
+    t.string "address"
+    t.float "latitude"
+    t.float "longitude"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
