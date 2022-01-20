@@ -35,9 +35,9 @@
             <h6>◆画像選択</h6>
             <%= f.attachment_field :image %>
             <%= f.label :latitude %>
-            <%= f.text_field :latitude,:value =>"緯度", id: :latitude %>
+            <%= f.text_field :latitude, id: :latitude %>
             <%= f.label :longitude %>
-            <%= f.text_field :longitude,:value =>"経度", id: :longitude %>
+            <%= f.text_field :longitude, id: :longitude %>
             <%= f.submit "投稿する" %>
         <% end %>
     </div>
@@ -95,15 +95,15 @@
 
                 //検索した時に緯度経度を入力する
 
-
-                document.getElementById('latitude').value = results[0].geometry.location.latitude();
-                document.getElementById('longitude').value = results[0].geometry.location.longitude();
+                console.log(results[0].geometry.location)
+                document.getElementById('latitude').value = results[0].geometry.location.lat();
+                document.getElementById('longitude').value = results[0].geometry.location.lng();
 
                 // マーカーのドロップ（ドラッグ終了）時のイベント
                 google.maps.event.addListener( marker, 'dragend', function(ev){
                     // イベントの引数evの、プロパティ.latLngが緯度経度
-                    document.getElementById('latitude').value = ev.latLng.latitude();
-                    document.getElementById('longitude').value = ev.latLng.longitude();
+                    document.getElementById('latitude').value = ev.latLng.lat();
+                    document.getElementById('longitude').value = ev.latLng.lng();
                 });
             } else {
               alert('該当する結果がありませんでした：' + status);
