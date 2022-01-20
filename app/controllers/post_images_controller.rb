@@ -22,7 +22,7 @@ class PostImagesController < ApplicationController
 
   def edit
     @post_image = PostImage.find(params[:id])
-    @post_image.user_id = current_user.id
+    # @post_image.user_id = current_user.id
     # @post_image = PostImage.new
 
      if @post_image.update(post_image_params)
@@ -44,7 +44,7 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
-    params.require(:post_image).permit(:title, :image, :introduction, :genre, :address, :latitude, :longitude)
+    params.require(:post_image).permit(:title, :image, :introduction, :genre, :latitude, :longitude)
   end
 
 end
