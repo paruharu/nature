@@ -11,6 +11,7 @@
 
   <!--</div>-->
   <!--<%# end %>-->
+
 <br>
 <html>
  <body class="background">
@@ -77,10 +78,25 @@
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
 
-　　 <div class="row">
-      <h4>最近の投稿</h4>
-     </div>
+    　　 <div class="row">
+          <h4>最近の投稿</h4>
+         </div>
 
+         <div class="row">
+            <ul class="slider">
+              <!--<%# @post_images.each do |post_image| %>-->
+              <!--<div>-->
+              <!-- <%#= attachment_image_tag post_image, :image %>-->
+              <%#=link_to post_image_path(post_image.id) do %><%#= post_image.title %><%# end %>
+              <!--</div>-->
+              <!--<%# end %>-->
+
+               <li><img src="assets/forest.jpg" alt=""></li>
+               <li><img src="/assets/forest.jpg" alt=""></li>
+            </ul>
+         </div>
+
+      </div>
    </div>
   </body>
 </html>
