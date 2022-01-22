@@ -7,8 +7,6 @@
       <%= form_with model: @post_image, local:true do |f| %>
         <h6>◆タイトル</h6>
         <%= f.text_field :title %>
-        <h6>◆撮影場所</h6>
-        <%= f.text_field :address %>
         <h6>◆カテゴリー</h6>
         <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>
         <h6>●説明</h6>
