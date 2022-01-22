@@ -1,16 +1,24 @@
+<br>
+<html>
+ <body class="background">
+   <div class="container">
+    <div class="row">
+      <h4>投稿編集</h4>
+      <%= form_with model: @post_image, local:true do |f| %>
+        <h6>◆タイトル</h6>
+        <%= f.text_field :title %>
+        <h6>◆撮影場所</h6>
+        <%= f.text_field :address %>
+        <h6>◆カテゴリー</h6>
+        <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>
+        <h6>●説明</h6>
+        <%= f.text_area :introduction %>
+        <h6>◆画像選択</h6>
+        <%= f.attachment_field :image %>
 
-<h4>投稿編集</h4>
-<%= form_with model: @post_image, local:true do |f| %>
-  <h6>●画像選択</h6>
-  <%= f.attachment_field :image %>
-  <h6>●タイトル</h6>
-  <%= f.text_field :title %>
-  <h6>●撮影場所</h6>
-  <%= f.text_field :address %>
-  <h6>●カテゴリー</h6>
-  <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: '選択ボックス'}, class: 'genre' %>
-
-  <h6>●説明</h6>
-  <%= f.text_area :introduction %>
-  <%= f.submit '変更を保存' %>
-<% end %>
+        <%= f.submit '変更を保存' %>
+      <% end %>
+    </div>
+   </div>
+  </body>
+</html>

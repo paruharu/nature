@@ -24,14 +24,17 @@ class PostImagesController < ApplicationController
     @post_image = PostImage.find(params[:id])
     # @post_image.user_id = current_user.id
     # @post_image = PostImage.new
+  end
 
-     if @post_image.update(post_image_params)
+  def update
+    @post_image = PostImage.find(params[:id])
+    @post_image.update(post_image_params)
+    if @post_image.update(post_image_params)
         flash[:notice] = "更新しました。"
         redirect_to post_image_path(@post_image.id)
-     else
+    else
         render :edit
-     end
-
+    end
   end
 
   def destroy
@@ -44,6 +47,9 @@ class PostImagesController < ApplicationController
   private
 
   def post_image_params
+    p "params"
+    p "params"
+    p params
     params.require(:post_image).permit(:title, :image, :introduction, :genre, :latitude, :longitude)
   end
 
