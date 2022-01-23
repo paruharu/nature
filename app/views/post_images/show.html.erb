@@ -5,7 +5,7 @@
     <div class="row">
     　<h4>投稿詳細</h4>
     　<div>
-      <%= attachment_image_tag @post_image, :image %>
+      <%= attachment_image_tag @post_image, :image, class: 'photosize' %>
       <p>タイトル：<%= @post_image.title %></p>
       <p>撮影場所：緯度<%= @post_image.latitude %>経度<%= @post_image.longitude %></p>
       <p>カテゴリー：<%= @post_image.genre %></p>

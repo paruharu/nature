@@ -3,26 +3,17 @@
  <body class="background">
    <div class="container">
     <div class="row">
-      <h4>ジャンルから投稿を探す</h4>
+      <h4>カテゴリから投稿を探す</h4>
     </div>
 
     <div class="row">
     <%= search_form_for @q, url: search_post_images_path do |f| %>
-    　<%= f.text_field :genre_cont, class: "search-form", placeholder: "キーワード検索" %>
+    　<%= f.select :genre_cont, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'カテゴリ検索'}, class: "search-form" %>
  　　　  <%= f.submit "検索", class: "search-btn" %>
     <% end %>
     </div>
 
 　　<h4>検索結果</h4>
-    <!--<%# if @results.length != 0 %>-->
-    <!--  <%# @results.each do |result| %>-->
-    <!--    <%#= result.title %>-->
-    <!--    <%#= result.introduction %>-->
-    <!--    <%#= result.genre %>-->
-    <!--  <%# end %>-->
-    <!--<%# else %>-->
-    <!--  検索結果はありません-->
-    <!--<%# end %>-->
 　　　　　<% if @results.length != 0 %>
           <div id='map'></div>
 

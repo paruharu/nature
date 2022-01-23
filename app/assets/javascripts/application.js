@@ -22,11 +22,3 @@
 //= require jquery
 //= require rails-ujs
 
-// $(function() {
-//     $('.slider').slick({
-//         dots: true,
-//         infinite: true,
-//   	    minSlides: 3
-//     });
-// });
-
