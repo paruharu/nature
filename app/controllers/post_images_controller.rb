@@ -1,5 +1,7 @@
 class PostImagesController < ApplicationController
 
+  before_action :set_q, only: [:index, :search]
+
   def new
     @post_image = PostImage.new
   end
@@ -44,12 +46,22 @@ class PostImagesController < ApplicationController
     redirect_to post_images_path
   end
 
+  def search
+    @results = @q.result
+  end
+
+
   private
 
+  def set_q
+    @q = PostImage.ransack(params[:q])
+    @post_images = @q.result(distinct: true)
+  end
+
   def post_image_params
-    p "params"
-    p "params"
-    p params
+    # p "params"
+    # p "params"
+    # p params
     params.require(:post_image).permit(:title, :image, :introduction, :genre, :latitude, :longitude)
   end
 

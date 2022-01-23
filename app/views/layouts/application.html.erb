@@ -16,7 +16,7 @@
     <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"/>-->
     <!--<link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"/>-->
     <!--<script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>-->
-    
+
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
@@ -24,7 +24,7 @@
      $(function() {
      $('.slider').bxSlider();
      });
-</script>
+　　</script>
 
   </head>
 
@@ -35,10 +35,14 @@
        <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
       <li>
-        </i><%= link_to '地図', post_images_path,class: 'fas fa-map-pin btn btn-outline-dark mr-0', style: 'margin: 15px' %>
+        <%= link_to '地図', post_images_path,class: 'fas fa-map-pin btn btn-outline-dark mr-0', style: 'margin: 15px' %>
       </li>
     　<li>
-        <%= link_to '投稿', new_post_image_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 15px' %>
+        <%= link_to 'ジャンル', search_post_images_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 15px' %>
+      </li>
+
+    　<li>
+        <%= link_to '投稿', new_post_image_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 15px mx-0' %>
       </li>
       <li>
         <%= link_to 'マイページ',  user_path(current_user.id),class: 'far fa-address-card btn btn-outline-dark', style: 'margin: 15px' %>
