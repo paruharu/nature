@@ -11,12 +11,14 @@
       <p>カテゴリー：<%= @post_image.genre %></p>
       <p>説明：<%= @post_image.introduction %></p>
       <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
-　　　<p>撮影場所：緯度<%= @post_image.latitude %>経度<%= @post_image.longitude %></p>
+      <p>投稿者：<%= link_to user_path(@user) do %><%= @post_image.user.name %><% end %></p>
+      <p>撮影場所：緯度<%= @post_image.latitude %> 経度<%= @post_image.longitude %></p>
+      <div class="row">
          <div id='map'></div>
           <style>
           #map {
-            height: 600px;
-            width: 70%;
+            height: 400px;
+            width: 95%;
           }
           </style>
 
@@ -66,8 +68,8 @@
 
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
+        </div>
 
-      <p>投稿者：<%= link_to user_path(@user) do %><%= @post_image.user.name %><% end %></p>
     　</div>
 
 
