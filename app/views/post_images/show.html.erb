@@ -7,10 +7,66 @@
     　<div>
       <%= attachment_image_tag @post_image, :image, class: 'photosize' %>
       <p>タイトル：<%= @post_image.title %></p>
-      <p>撮影場所：緯度<%= @post_image.latitude %>経度<%= @post_image.longitude %></p>
+      <!--<p>撮影場所：緯度<%#= @post_image.latitude %>経度<%#= @post_image.longitude %></p>-->
       <p>カテゴリー：<%= @post_image.genre %></p>
       <p>説明：<%= @post_image.introduction %></p>
       <p>投稿日時：<%= @post_image.created_at.strftime('%Y/%m/%d') %></p>
+　　　<p>撮影場所：緯度<%= @post_image.latitude %>経度<%= @post_image.longitude %></p>
+         <div id='map'></div>
+          <style>
+          #map {
+            height: 600px;
+            width: 70%;
+          }
+          </style>
+
+          <!-- js部分 -->
+          <script>
+              function initMap() {
+
+                //初期表示位置
+                let latlng = new google.maps.LatLng(38.60, 139.5);
+                //デザイン
+                let styles = [
+                     {
+                      stylers: [
+                       { "saturation": 0 },
+                       { "lightness": 0 }
+                      ]
+                     }
+                    ];
+
+                let map = new google.maps.Map(document.getElementById('map'), {
+                    zoom: 6,
+                    styles: styles,
+                    center: latlng
+                });
+                let transitLayer = new google.maps.TransitLayer();
+                transitLayer.setMap(map);
+
+                //複数マーカー ここから
+                  ( function() {
+                    let markerLatLng = new google.maps.LatLng({lat: <%= @post_image.latitude %>, lng: <%= @post_image.longitude %>}); // 緯度経度のデータ作成
+                    let marker = new google.maps.Marker({
+                      position: markerLatLng,
+                      map: map
+                    });
+                  //マーカーをクリックしたとき、詳細情報を表示
+                    let infowindow = new google.maps.InfoWindow({
+                      position: markerLatLng,
+                      content: "<a href='<%= post_image_url(@post_image.id) %>' target='_blank'><%= @post_image.title %></a>"
+                    }); //ここで詳細ページへのリンクを表示させる
+                    marker.addListener('click', function() {
+                      infowindow.open(map, marker);
+                    });
+
+                 })();
+                // 複数マーカー ここまで
+            }
+
+            </script>
+            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
+
       <p>投稿者：<%= link_to user_path(@user) do %><%= @post_image.user.name %><% end %></p>
     　</div>
 
