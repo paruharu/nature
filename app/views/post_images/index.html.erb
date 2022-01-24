@@ -85,14 +85,14 @@
 　       <!--画面スライダー-->
          <div class="row">
             <ul class="slider">
-              <% @post_images.each do |post_image| %>
-              <div>
+              <% @post_images.last(10).each do |post_image| %>
+
                <li>
-               <%= attachment_image_tag post_image, :image, class: 'photosize' %>
+               <%= attachment_image_tag post_image, :image, class: 'sliderphotosize ' %>
                <%=link_to post_image_path(post_image.id) do %><%= post_image.title %><% end %>
-               <%= post_image.created_at.strftime('%Y/%m/%d') %>
+               投稿日：<%= post_image.created_at.strftime('%Y/%m/%d') %>
                </li>
-              </div>
+
               <% end %>
 
             </ul>
