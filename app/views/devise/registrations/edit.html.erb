@@ -1,9 +1,9 @@
 <br>
 <html>
  <body class="background">
-   <div class="container">
-    <div class="row">
-      <h4>プロフィール編集</h4>
+   <div class="d-flex align-items-center justify-content-center">
+     <h4>プロフィール編集</h4>
+   </div>
 
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
