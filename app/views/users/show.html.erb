@@ -3,8 +3,10 @@
  <body class="background">
    <div class="container">
     <div class="row">
-     <h4><div class="mb-2 mt-2">プロフィール</div></h4>
-        </div>
+      <div class="main-title mb-3">
+       <h4>プロフィール</h4>
+      </div>
+    </div>
         <div class="row">
           <h6><strong>ニックネーム：</strong><%= @user.name %></h6>
           <%#= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
@@ -17,10 +19,13 @@
           <% end %>
       </div>
      </div>
+     <br>
 
      <div class="container">
       <div class="row">
-        <h4><div class="mb-2 mt-4">投稿一覧</div></h4>
+        <div class="main-title mb-3">
+        <h4><div class="mb-2">投稿一覧</div></h4>
+        </div>
       </div>
       <div class="row">
 
