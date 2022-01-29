@@ -8,17 +8,17 @@
       </div>
     </div>
         <div class="row">
+          <div class="col-2">
           <h6><strong>ニックネーム：</strong><%= @user.name %></h6>
           <%#= attachment_image_tag @user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
-        </div>
-        <div class="row">
           <h6><strong>居住地：</strong><%= @user.home %></h6>
-        </div>
+          </div>
+          <div class="col-1 mt-2">
           <% if @user.id == current_user.id %>
-            <p><%= link_to "プロフィール編集", edit_user_registration_path, class: "btn btn-info" %></p>
+            <p><%= link_to "編集", edit_user_registration_path, class: "btn btn-info btn-block" %></p>
           <% end %>
-      </div>
-     </div>
+          </div>
+        </div>
      <br>
 
      <div class="container">
