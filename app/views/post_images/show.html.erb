@@ -75,12 +75,14 @@
 
     　</div>
 
-
+      <div class="row">
       <% if @post_image.user == current_user %>
-        <%= link_to "投稿編集", edit_post_image_path(@post_image.id) %>
+        <div class="mr-3">
+        <%= link_to "投稿編集", edit_post_image_path(@post_image.id)%>
+        </div>
         <%= link_to "投稿削除", post_image_path(@post_image.id), method: :delete, data: {confirm: '本当に投稿を削除しますか？'} %>
       <% end %>
-
+      </div>
 
     　<div>
         <% @post_image.post_comments.each do |post_comment| %>
