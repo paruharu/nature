@@ -12,7 +12,7 @@
       <div class="row ml-1">
        <h6><strong>◆タイトル</strong></h6>
       </div>
-      　<%= f.text_field :title, class: "form-control", autofocus: true %>
+      　<%= f.text_field :title, :size=>"40", class: "form-control", autofocus: true %>
       　<h6><strong>◆カテゴリー</strong></h6>
         <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'プルダウンから選択'}, class: 'genre box-select mt-2 mb-3', autofocus: true %>
         <h6>◆<strong>説明</strong></h6>
