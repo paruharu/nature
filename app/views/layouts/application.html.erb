@@ -10,7 +10,7 @@
 
     <!--gem gonを使用できるようにする-->
     <%= include_gon %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%#= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css">
 
     <!--画面スライダー-->
@@ -18,11 +18,13 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/bxslider/4.2.12/jquery.bxslider.min.js"></script>
     <script>
+    jQuery(document).on('turbolinks:load', function(){
      $(function() {
      $('.slider').bxSlider(
          {maxSlides: 2,
           slideWidth: 700 });
      });
+    });
 　　</script>
 
   </head>
