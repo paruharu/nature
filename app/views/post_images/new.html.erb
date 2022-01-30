@@ -1,33 +1,36 @@
-
+<br>
+ <body class="background">
+   
    <div class="container">
     <div class="row mt-3">
       <div class="main-title mb-3">
-      <h4>新規投稿</h4><br>
+       <h4>新規投稿</h4><br>
       </div>
     </div>
-      <%= form_with model: @post_image, local:true do |f| %>
-    <div class="row ml-1">
     
-          <h6><strong>◆タイトル</strong></h6>
-        　<%= f.text_field :title, size: "15 %", class: "form-control", autofocus: true %>
-        　<h6><strong>◆カテゴリー</strong></h6>
-          <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'プルダウンから選択'}, class: 'genre box-select mt-1', autofocus: true %>
-          <div class="mt-3"><h6>◆<strong>説明</strong></h6></div>
-          <%= f.text_area :introduction, size: "30 %", class: "form-control mt-1", autofocus: true  %>
-          <div class="mt-3"><h6>◆<strong>画像選択</strong></h6></div>
-          <%= f.attachment_field :image, autofocus: true %>
-          <div class="mt-3"><h6>◆<strong>撮影場所</strong>（地図上で場所を選択）</h4></div>
-
-    </div>
-
-    <div class="row ml-1 mb-3">
-        <input id="address" type="textbox" value="Tokyo">
-        <input type="button" value="検索" onclick="codeAddress()", class="btn btn-success ml-2" >
-    </div>
-
+     <%= form_with model: @post_image, local:true do |f| %>
+      <div class="row ml-1">
+       <h6><strong>◆タイトル</strong></h6>
+      </div>
+      　<%= f.text_field :title, class: "form-control", autofocus: true %>
+      　<h6><strong>◆カテゴリー</strong></h6>
+        <%= f.select :genre, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'プルダウンから選択'}, class: 'genre box-select mt-2 mb-3', autofocus: true %>
+        <h6>◆<strong>説明</strong></h6>
+        <%= f.text_area :introduction, class: "form-control mt-2 mb-3", autofocus: true  %>
+        <div class="mt-3"><h6>◆<strong>画像選択</strong></h6></div>
+        <%= f.attachment_field :image, class: "mt-2 mb-3",autofocus: true %>
+        <div class="mt-2 mb-3"><h6>◆<strong>撮影場所</strong>（地図上で場所を選択）</h4></div>
+   
+      <div class="row ml-1 mb-3">
+          <input id="address" type="textbox" value="Tokyo">
+          <input type="button" value="検索" onclick="codeAddress()", class="btn btn-success ml-2" >
+      </div>
+      
+      <div class="row ml-1 mb-3">
           <div id='map'></div>
-
-
+      </div>
+      
+      <div class="row ml-1 mb-3">
             <!--経度・緯度は地図下に配置-->
             <div class="mt-2">
             <%= f.label :latitude %>
@@ -35,16 +38,13 @@
           　<%= f.label :longitude %>
         　　<%= f.text_field :longitude, id: :longitude %>
         　　</div>
+      </div>
 
- 
-
-          　<%= f.submit "投稿する", class: "btn btn-info w-50 mt-2" %>
-         
-
-        <% end %>
+       <%= f.submit "投稿する", class: "btn btn-info w-50 ml-3" %>
+       <% end %>
      </div>
-
-   </div>
+    </div>
+ 
               <script>
             //初期マップの設定
             let map
@@ -109,3 +109,5 @@
               width: 600px;
             }
             </style>
+
+</body>
