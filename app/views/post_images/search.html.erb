@@ -10,8 +10,8 @@
 
     <div class="row">
     <%= search_form_for @q, url: search_post_images_path do |f| %>
-    　<%= f.select :genre_cont, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'カテゴリ検索'}, class: "search-form" %>
- 　　　  <%= f.submit "検索", class: "search-btn" %>
+    　<%= f.select :genre_cont, ['森', '山', '川', '湖', '空', '海', '公園'], {include_blank: 'カテゴリ検索'}, class: "search-form box-select mt-2" %>
+ 　　　  <%= f.submit "検索", class: "search-btn btn btn-success mb-1" %>
     <% end %>
     </div>
 
