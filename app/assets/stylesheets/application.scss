@@ -20,6 +20,10 @@
   background-color: #F0F8FF;
 }
 
+.top{
+  font-family: 'Kiwi Maru', serif;
+}
+
 .sliderphotosize {
   height: 400px;
   width: 600px;
@@ -35,6 +39,11 @@
   height: 800px;
   background-image: image-url('about.jpg');
   background-size: cover; /* 縦横比を維持したまま背景領域を埋め尽くす */
+}
+
+.bg-mask {
+  height: 100%;
+  background: rgba(255,255,255,0.3);
 }
 
 .main-title{
