@@ -7,7 +7,15 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
-  enums:
+    models:
+    attributes:
+      post_image:
+        title: タイトル
+        genre: カテゴリー
+        image_id: 画像
+        latitude: 経度
+        longitude: 緯度
+    enums:
     order:
       payment_method:
         credit_card: 'クレジットカード'

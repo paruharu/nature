@@ -6,18 +6,11 @@
       <h3>みんなの地図</h3>
       </div>
     </div>
-
         <div id='map'></div>
-
-        <style>
-        #map {
-          height: 600px;
-          width: 70%;
-        }
-        </style>
 
         <!-- js部分 -->
         <script>
+            let map
             function initMap() {
 
               //初期表示位置
@@ -37,6 +30,7 @@
                   styles: styles,
                   center: latlng
               });
+              
               let transitLayer = new google.maps.TransitLayer();
               transitLayer.setMap(map);
 
@@ -57,14 +51,23 @@
                     infowindow.open(map, marker);
                   });
 
-               })();
+              })();
               <% end %>
               // 複数マーカー ここまで
+            
           }
-
+        
         </script>
         <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_tiqnCsg_w_qy1zBf2AC5C-sWLBcuN50&callback=initMap" async defer></script>
-
+        
+       
+        <style>
+        #map {
+          height: 600px;
+          width: 70%;
+        }
+        </style>
+        
 　　　　<br>
 
     　　 <div class="row">

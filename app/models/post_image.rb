@@ -5,6 +5,13 @@ class PostImage < ApplicationRecord
   has_many :post_comments, dependent: :destroy
 
   has_many :favorites, dependent: :destroy
+  
+  validates :title, presence: true
+  validates :genre, presence: true
+  validates :image_id, presence: true
+  validates :latitude, presence: true
+  validates :longitude, presence: true
+  
 
   # has_one :spot, dependent: :destroy
   # accepts_nested_attributes_for :spot
