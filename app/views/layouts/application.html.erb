@@ -45,14 +45,14 @@
        <ul class="navbar-nav ml-auto">
       <% if user_signed_in? %>
       <li>
-        <%= link_to '地図', post_images_path,class: 'fas fa-map-pin btn btn-outline-dark mr-0', style: 'margin: 13px' %>
+        <%= link_to '地図', post_images_path,class: 'fas fa-map-pin btn btn-outline-dark mr-0', style: 'margin: 13px', data: {"turbolinks" => false} %>
       </li>
     　<li>
         <%= link_to 'ジャンル', search_post_images_path,class: 'fas fa-search-location btn btn-outline-dark mr-0', style: 'margin: 13px' %>
       </li>
 
     　<li>
-        <%= link_to '投稿', new_post_image_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 13px' %>
+        <%= link_to '投稿', new_post_image_path,class: 'fas fa-camera-retro btn btn-outline-dark', style: 'margin: 13px', data: {"turbolinks" => false}%>
       </li>
       <li>
         <%= link_to 'マイページ',  user_path(current_user.id),class: 'far fa-address-card btn btn-outline-dark', style: 'margin: 13px' %>
