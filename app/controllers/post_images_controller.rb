@@ -28,8 +28,6 @@ class PostImagesController < ApplicationController
 
   def edit
     @post_image = PostImage.find(params[:id])
-    # @post_image.user_id = current_user.id
-    # @post_image = PostImage.new
   end
 
   def update
