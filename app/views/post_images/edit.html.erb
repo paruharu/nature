@@ -26,7 +26,7 @@
         <h6>◆<strong>撮影場所</strong>（地図上で場所を選択）</h6>
    
       <div class="row ml-3 mb-3">
-          <input id="address" type="textbox" value="Tokyo">
+          <input id="address" type="textbox" value="場所を変更する場合のみ">
           <input type="button" value="検索" onclick="codeAddress()", class="btn btn-success ml-3" >
       </div>
     
@@ -118,8 +118,6 @@
                         document.getElementById('latitude').value = ev.latLng.lat();
                         document.getElementById('longitude').value = ev.latLng.lng();
                     });
-                    
-                    
                     
                  } else {
                   alert('該当する結果がありませんでした：' + status);
