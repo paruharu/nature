@@ -8,7 +8,7 @@ class PostImage < ApplicationRecord
   
   validates :title, presence: true
   validates :genre, presence: true
-  validates :image_id, presence: true
+  validates :image, presence: true
   validates :latitude, presence: true
   validates :longitude, presence: true
   
