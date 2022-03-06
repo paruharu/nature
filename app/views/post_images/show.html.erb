@@ -5,7 +5,16 @@
     　 <h4>投稿詳細</h4>
     　</div>
     </div>
-
+    
+    
+        <% if @error_comment.present? %>
+         <div id="error_explanation">
+          <% @error_comment.errors.full_messages.each do |message| %>
+          <%= message %>
+          <% end %>
+         </div>
+        <% end %>
+        
     <div class="row mt-3 mr-3">
     　<div class="col">
        <%= attachment_image_tag @post_image, :image, class: 'photosize' %>
@@ -124,6 +133,7 @@
      　  <% end %>
     
       <div class="row ml-2">
+          
         <%= form_with(model:[@post_image, @post_comment], local: true) do |f| %>
          <div class="col ml-4">
           <%= f.text_area :comment, rows:'2', cols:"40", placeholder: "コメント" %>

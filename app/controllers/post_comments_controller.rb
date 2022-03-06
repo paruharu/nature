@@ -6,8 +6,14 @@ class PostCommentsController < ApplicationController
     # comment = PostComment.new(post_comment_params)
     # comment.user_id = current_user.id と同じ
     comment.post_image_id = post_image.id
-    comment.save
-    redirect_to post_image_path(post_image)
+    if comment.save
+       redirect_to post_image_path(post_image)
+    else
+        @error_comment = comment
+        @post_image = PostImage.find(params[:post_image_id])
+        @post_comment = PostComment.new
+        redirect_to post_image_path(post_image)
+    end
   end
 
   def destroy
